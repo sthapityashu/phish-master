@@ -1,73 +1,126 @@
 {{ define "base" }}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gophish - Phishing Toolkit" />
+    <meta
+      name="author"
+      content="Jordan Wright (http://github.com/jordan-wright)"
+    />
+    <link rel="shortcut icon" href="/images/logo_small1.png" />
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gophish - Phishing Toolkit">
-    <meta name="author" content="Jordan Wright (http://github.com/jordan-wright)">
-    <link rel="shortcut icon" href="/images/favicon.ico">
+    <title>Trap Net - {{ .Title }}</title>
 
-    <title>{{ .Title }} - Gophish</title>
+    <link href="/css/dist/gophish.css" rel="stylesheet" type="text/css" />
+    <!-- 
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:700,500"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700"
+      rel="stylesheet"
+      type="text/css"
+    /> -->
 
-    <link href="/css/dist/gophish.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:700,500' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script>
-        {{if .User}}
-    var user = {
-        api_key : {{ .User.ApiKey }},
-        username : {{ .User.Username }}
-    }
-    {{end}}
-    {{if .Token}}
-        var csrf_token = {{.Token}}
-    {{end}}
+          {{if .User}}
+      var user = {
+          api_key : {{ .User.ApiKey }},
+          username : {{ .User.Username }}
+      }
+      {{end}}
+      {{if .Token}}
+          var csrf_token = {{.Token}}
+      {{end}}
     </script>
-</head>
+  </head>
 
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img class="navbar-logo" src="/images/logo_inv_small.png" />
-                <a class="navbar-brand" href="/">&nbsp;gophish</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        {{if .User}}
-                        <div class="btn-group" id="navbar-dropdown">
-                            <a class="btn btn-primary" href="/settings"><i class="fa fa-user"></i> {{.User.Username}}</a>
-                            <a class="btn btn-primary dropdown-toggle" href="/logout">
-                                <i class="fa fa-sign-out"></i>
-                            </a>
-                        </div>
-                        {{else}}
-                        <a href="/login">
-                            <button type="button" class="btn btn-primary">Login</button>
-                        </a>
-                        {{end}}
-                    </li>
-                </ul>
-            </div>
+  <body>
+    <div
+      class="navbar navbar-inverse navbar-fixed-top"
+      role="navigation"
+      style="background-color: #53a953"
+    >
+      <div class="container-fluid">
+        <div class="navbar-header" style="display: flex; align-items: center">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+            style="margin-right: 10px"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img
+            class="navbar-logo"
+            src="/images/logo_small1.png"
+            style="margin-right: 10px"
+          />
+          <a class="navbar-brand" href="/" style="margin-right: auto"
+            >&nbsp;Trap Net</a
+          >
+          <div class="toggle-sidebar-container" style="margin-left: 10px">
+            <a
+              href="javascript:void(0);"
+              id="toggle-sidebar"
+              class="toggle-sidebar-btn"
+              style="background-color: white; border-radius: 4px; padding: 5px"
+            >
+              <i class="fa fa-arrow-left" style="color: #53a953"></i>
+            </a>
+          </div>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              {{if .User}}
+              <div class="btn-group" id="navbar-dropdown">
+                <a
+                  class="btn"
+                  href="/settings"
+                  style="
+                    background-color: transparent;
+                    color: white;
+                    text-transform: capitalize;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                  "
+                >
+                  {{.User.Username}}&nbsp; <i class="fa fa-user-circle-o"></i>
+                </a>
+              </div>
+              {{end}}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+
     {{template "nav" .}}
-    {{template "body" .}}
+
+    <div class="main-content">{{template "body" .}}</div>
+
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/js/dist/vendor.min.js"></script>
     <script src="/js/dist/app/gophish.min.js"></script>
     {{template "scripts" .}}
-</body>
-
+  </body>
 </html>
 {{ end }}
