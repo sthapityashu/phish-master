@@ -973,7 +973,6 @@ function poll() {
 //         })
 // }
 
-
 //New Load Function (Yashu)
 function load() {
   campaign.id = window.location.pathname.split("/").slice(-1)[0];
@@ -1281,7 +1280,7 @@ var renderSingleBarChart = function (chartopts) {
         "Email Opened",
         "Clicked Link",
         "Submitted Data",
-        "Email Reported",
+        "Training Completed",
       ], // Default categories for X-axis
       title: {
         text: null,

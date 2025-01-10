@@ -334,7 +334,7 @@ function updateDashboardStats(campaigns) {
   ).innerHTML = `Submitted Data </br> <h3>${totalSubmitted}</h3>`;
   document.getElementById(
     "email_reported_chart"
-  ).innerHTML = `Reported Email </br> <h3>${totalReported}</h3>`;
+  ).innerHTML = `Training Completed </br> <h3>${totalReported}</h3>`;
 }
 
 // Renders a histogram using provided data (Yashu)
