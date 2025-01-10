@@ -1,47 +1,85 @@
 {{define "nav"}}
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li>
-                    <a href="/">Dashboard</a>
-                </li>
-                <li>
-                    <a href="/campaigns">Campaigns</a>
-                </li>
-                <li>
-                    <a href="/groups">Users &amp; Groups</a>
-                </li>
-                <li> <a href="/templates">Email Templates</a>
-                </li>
-                <li>
-                    <a href="/landing_pages">Landing Pages</a>
-                </li>
-                <li>
-                    <a href="/sending_profiles">Sending Profiles</a>
-                </li>
-                <li>
-                    <a href="/settings">Account Settings</span></a>
-                </li>
-                {{if .ModifySystem}}
-                <li>
-                    <a href="/users">User Management<span class="nav-badge badge pull-right">Admin</span></a>
-                </li>
-                <li>
-                    <a href="/webhooks">Webhooks<span class="nav-badge badge pull-right">Admin</span></a>
-                </li>
-                {{end}}
-                <li>
-                    <hr>
-                </li>
-                <li>
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar" id="sidebar">
+      <ul class="nav nav-sidebar">
+        <li>
+          <a href="/"
+            ><span><i class="fa fa-dashcube nav-icon"></i></span
+            ><span>&nbsp;&nbsp;Dashboard</span>
+            <!-- <span class="nav-badge badge pull-right"
+              ><i class="fa fa-caret-right"></i
+            ></span> -->
+          </a>
+        </li>
+        <li>
+          <a href="/campaigns"
+            ><span><i class="fa fa-recycle nav-icon"></i></span
+            ><span>&nbsp;&nbsp;Campaigns</span></a
+          >
+        </li>
+
+        <li>
+          <a href="/templates"
+            ><span><i class="fa fa-envelope nav-icon"></i></span
+            ><span>&nbsp;&nbsp;Email Templates</span></a
+          >
+        </li>
+        <li>
+          <a href="/landing_pages"
+            ><span><i class="fa fa-file nav-icon"></i></span
+            ><span>&nbsp;&nbsp;Landing Pages</span></a
+          >
+        </li>
+        <li>
+          <a href="/sending_profiles"
+            ><span><i class="fa fa-user nav-icon"></i></span
+            ><span>&nbsp;&nbsp;Sending Profiles</span></a
+          >
+        </li>
+        <li>
+          <a href="/groups"
+            ><span><i class="fa fa-users nav-icon"></i></span
+            ><span>&nbsp;&nbsp;Target &amp; Groups</span></a
+          >
+        </li>
+        <li>
+          <a href="/settings">
+            <span><i class="fa fa-cog nav-icon"></i></span
+            ><span>&nbsp;&nbsp;Account Settings</span></a
+          >
+        </li>
+        {{if .ModifySystem}}
+        <li>
+          <a href="/users"
+            ><span><i class="fa fa-tasks nav-icon"></i></span
+            ><span>&nbsp;&nbsp;Administration</span></a
+          >
+        </li>
+        <li>
+          <a href="/webhooks"
+            ><span><i class="fa fa-bookmark nav-icon"></i></span
+            ><span>&nbsp;&nbsp;&nbsp;&nbsp;Webhooks</span></a
+          >
+        </li>
+        {{end}}
+        <li>
+          <hr style="background-color: black" />
+        </li>
+        <li>
+          <a href="/logout"
+            ><span><i class="fa fa-sign-out nav-icon"></i></span
+            ><span>&nbsp;Logout</span></a
+          >
+        </li>
+        <!-- <li>
                     <a href="https://docs.getgophish.com/user-guide/">User Guide</a>
                 </li>
                 <li>
                     <a href="https://docs.getgophish.com/api-documentation/">API Documentation</a>
-                </li>
-            </ul>
-        </div>
+                </li> -->
+      </ul>
     </div>
+  </div>
 </div>
 {{end}}
