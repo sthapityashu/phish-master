@@ -7,7 +7,6 @@ body {
   padding-top: 50px;
 }
 
-
 /*
  * Global add-ons
  */
@@ -16,7 +15,6 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
-
 
 /*
  * Sidebar
@@ -51,11 +49,14 @@ body {
   padding-right: 20px;
   padding-left: 20px;
 }
+
 .nav-sidebar > .active > a {
   color: #fff;
-  background-color: #283F50;
+  /* border-radius: 20px; */
+  margin: 0 2px;
+  /* background-color: #283F50; */
+  background-color: #008000ac !important;
 }
-
 
 /*
  * Main content
@@ -63,6 +64,8 @@ body {
 
 .main {
   padding: 20px;
+  /* background-color: #008000ac; */
+  /* color: white; */
 }
 @media (min-width: 768px) {
   .main {
@@ -73,7 +76,6 @@ body {
 .main .page-header {
   margin-top: 0;
 }
-
 
 /*
  * Placeholder dashboard ideas
@@ -92,4 +94,41 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+/* Yashu Code */
+
+/* Sidebar default width */
+.sidebar {
+  background-color: #62c1a34d;
+  color: white;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+/* Hide the text inside the collapsed sidebar */
+.sidebar.collapsed ul.nav li a span + span {
+  display: none;
+}
+
+/* Adjust the alignment of the icons in collapsed mode */
+.sidebar.collapsed ul.nav li a {
+  text-align: center;
+}
+
+/* Center the icons in the sidebar when collapsed */
+.sidebar.collapsed ul.nav li a span {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+/* Main content default margin */
+.main-content {
+  margin-left: 20px;
+  transition: margin-left 0.3s ease;
 }

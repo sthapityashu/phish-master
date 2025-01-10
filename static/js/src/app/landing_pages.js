@@ -5,7 +5,6 @@
 */
 var pages = []
 
-
 // Save attempts to POST to /templates/
 function save(idx) {
     var page = {}
