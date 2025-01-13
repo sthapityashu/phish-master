@@ -794,7 +794,7 @@ function poll() {
 //         .success(function (c) {
 //             campaign = c
 //             if (campaign) {
-//                 $("title").text(c.name + " - Gophish")
+//                 $("title").text(c.name + " - Phish Master")
 //                 $("#loading").hide()
 //                 $("#campaignResults").show()
 //                 // Set the title
@@ -983,7 +983,7 @@ function load() {
     .success(function (c) {
       campaign = c;
       if (campaign) {
-        $("title").text(c.name + " - Gophish");
+        $("title").text(c.name + " - Phish Master");
         $("#loading").hide();
         $("#campaignResults").show();
 
